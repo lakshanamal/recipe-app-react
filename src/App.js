@@ -71,6 +71,9 @@ function App() {
           })}
         </div>
       </div>
+      <div className="footer">
+          <h4>@2021</h4>
+        </div>
     </div>
   );
 }
