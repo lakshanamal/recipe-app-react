@@ -40,7 +40,7 @@ body {
   position: relative;
   padding: 10px;
   text-align: right;
-  margin:30px 0 20px 0;
+  margin: 30px 0 20px 0;
 }
 .search-form input {
   padding: 12px;
@@ -58,102 +58,139 @@ body {
   color: #ffffff;
   border-radius: 10px;
 }
-.item{
-    display:grid;
-    gap:2px;
- 
+.item {
+  display: grid;
+  gap: 2px;
 }
 .recipe {
   background-color: white;
   width: 100%;
-  text-align:center;
-  margin-bottom:20px;
-  padding:10px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
   cursor: pointer;
 }
-.recipe:hover{
-    background-color: rgba(141, 140, 140, 0.116);
+.recipe:hover {
+  background-color: rgba(141, 140, 140, 0.116);
 }
-.recipe-content{
-    margin: 0 auto;
-    width: 260px;
+.recipe-content {
+  margin: 0 auto;
+  width: 260px;
 }
-.recipe img{
-    width: 260px;
-    height: 130px;
+.recipe img {
+  width: 260px;
+  height: 130px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.recipe h3 {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.dis-img {
+  margin: 0 auto;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 20px;
+}
+.dis-img img {
+  width: 280px;
+  height: 280px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.dis {
+  margin: 50px 0 20px 0;
+}
+.footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  padding: 40px;
+  align-items: center;
+  bottom: 0;
+}
+@media only screen and (min-width: 480px) {
+  .dis {
+    margin: 0;
+  }
+  .dis h2{
+    margin-bottom: 10px;
+  }
+  .dis-img {
+    margin-right:40px;
+  }
+  .discription-box {
+    display: flex;
+  }
+  .discription {
+    height: 500px;
+  }
+  .search-form input {
+    width: 60%;
+  }
+  .recipe img {
+    width: 320px;
+    height: 160px;
     border-radius: 20px;
     overflow: hidden;
+  }
+  .recipe-content {
+    margin: 0 auto;
+    width: 320px;
+  }
 }
-.recipe h3{
-    margin-top:10px;
-    text-align: left;
-}
-@media only screen and (min-width:480px){
-    .search-form input{
-        width:60%;
-    }
-    .recipe img{
-        width: 320px;
-        height: 160px;
-        border-radius: 20px;
-        overflow: hidden;
-    }
-    .recipe-content{
-        margin: 0 auto;
-        width: 320px;
-    }
-}
-.footer{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    text-align: center;
-    padding: 40px;
+@media only screen and (min-width: 868px) {
+  .content {
+    margin: 0 80px;
+  }
+  .item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-box {
+    display: flex;
     align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    position: relative;
+    height: 450px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+  }
+  .search-box img {
+    width: 500px;
+    height: 500px;
+  }
+  .search-box p {
+    width: 80%;
+  }
+  .dis-img{
+    width: 320px;
+    margin:0;
+  }
 }
-@media only screen and (min-width:868px){
-    .content {
-        margin: 0 80px;
-      }
-    .item{
-        grid-template-columns:repeat(2,1fr) ;
-    }
-    .search-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        position: relative;
-        height: 450px;
-        background-color: antiquewhite;
-        border-radius: 20px;
-      }
-      .search-box img {
-        width: 500px;
-        height: 500px;
-      }
-    .search-box p {
-        width: 80%;
-      }
-}
-@media screen  and (min-width:1141px){
-    .content {
-        margin: 0 80px;
-      }
-    .item{
-        grid-template-columns:repeat(3,1fr) ;
-    }
-    .search-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        position: relative;
-        height: 450px;
-        background-color: antiquewhite;
-        border-radius: 20px;
-      }
-      .search-box img {
-        width: 600px;
-        height: 600px;
-      }
+
+@media screen and (min-width: 1141px) {
+  .content {
+    margin: 0 80px;
+  }
+  .item {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    position: relative;
+    height: 450px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+  }
+  .search-box img {
+    width: 600px;
+    height: 600px;
+  }
+ 
 }

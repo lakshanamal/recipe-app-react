@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Recipe from "./recepi";
 import Intro from "./search.png";
+import Form from "./search";
 
 function App() {
   const APP_ID = "550e1712";
@@ -10,6 +10,7 @@ function App() {
   const [query, setQuery] = useState("chicken");
   const [recepies, setRecepies] = useState([]);
   const [search, setSearch] = useState("");
+  const [tag, setTag] = useState(false);
 
   const getRecepi = async () => {
     const responce = await fetch(
@@ -17,7 +18,6 @@ function App() {
     );
     const data = await responce.json();
     setRecepies(data.hits);
-    console.log(data.hits);
   };
 
   const hadleSubmit = (e) => {
@@ -25,9 +25,72 @@ function App() {
     setQuery(search);
     setSearch("");
   };
+  const foodMakeing = (id) => {
+    console.log(id);
+    // setRecepies([]);
+    let itemDetails = recepies.filter((food) => food.recipe.label === id);
+    setRecepies(itemDetails);
+    setTag(true);
+  };
+
+  const FoodList = () => {
+    return (
+      <div className="item">
+        {recepies.map((recepi) => {
+          return (
+            <div
+              key={recepi.recipe.label}
+              className="recipe"
+              onClick={() => {
+                foodMakeing(recepi.recipe.label);
+              }}
+            >
+              <div className="recipe-content">
+                <img src={recepi.recipe.image} alt="" />
+                <h3>{recepi.recipe.label}</h3>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const FoodDiscription = () => {
+    return (
+      <div className="recipeItem">
+        {recepies.map((recepi) => {
+          console.log(recepies);
+          return (
+            <div key={recepi.recipe.label} className="discription">
+              <div className="discription-box">
+                <div className="dis-img">
+                  <h2>{recepi.recipe.label}</h2>
+                  <img src={recepi.recipe.image} alt="" />
+                </div>
+                <div className="dis">
+                  <h2>Ingredient</h2>
+                  <ol>
+                    {recepi.recipe.ingredients.map((ingredient) => {
+                      return (
+                        <li>
+                          <h4>{ingredient.text}</h4>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   useEffect(() => {
     getRecepi();
+    console.log(tag);
   }, [query]);
 
   return (
@@ -46,34 +109,13 @@ function App() {
           </div>
           <img src={Intro} />
         </div>
-        <form className="search-form" onSubmit={hadleSubmit}>
-          <input
-            type="text"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            value={search}
-            placeholder="Search recipe ..."
-          />
-          <button type="submit" className="search-btn">
-            Search
-          </button>
-        </form>
-        <div className="item">
-          {recepies.map((recepi) => {
-            return (
-              <Recipe
-                title={recepi.recipe.label}
-                img={recepi.recipe.image}
-                key={recepi.recipe.label}
-              />
-            );
-          })}
-        </div>
+        <Form hadleSubmit={hadleSubmit} search={search} setSearch={setSearch} />
+
+        {tag ? <FoodDiscription /> : <FoodList />}
       </div>
       <div className="footer">
-          <h4>@2021</h4>
-        </div>
+        <h4>@2021</h4>
+      </div>
     </div>
   );
 }
