@@ -103,13 +103,14 @@ body {
 .dis-img {
   margin: 0 auto;
   width: 280px;
-  height: 280px;
+  height: 300px;
   margin-bottom: 20px;
 }
 .dis-img img {
   width: 280px;
   height: 280px;
   margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 20px;
 }
 .dis {
