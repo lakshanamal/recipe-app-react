@@ -24,6 +24,7 @@ function App() {
     e.preventDefault();
     setQuery(search);
     setSearch("");
+    setTag(false);
   };
   const foodMakeing = (id) => {
     console.log(id);
@@ -46,7 +47,10 @@ function App() {
               }}
             >
               <div className="recipe-content">
-                <img src={recepi.recipe.image} alt="" />
+                <div className="img-box">
+                  <img src={recepi.recipe.image} alt="" />
+                </div>
+
                 <h3>{recepi.recipe.label}</h3>
               </div>
             </div>
@@ -66,6 +70,7 @@ function App() {
               <div className="discription-box">
                 <div className="dis-img">
                   <h2>{recepi.recipe.label}</h2>
+
                   <img src={recepi.recipe.image} alt="" />
                 </div>
                 <div className="dis">
@@ -101,10 +106,10 @@ function App() {
       <div className="content">
         <div className="search-box">
           <div>
-            <h1>Recipe Contest</h1>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat,
-              inventore.
+            <h1>Find Your Favorite Recipe</h1>
+            <p >
+              If you are a chef, no matter how good a chef you are, it's not
+              good cooking for yourself; the joy is in cooking for others
             </p>
           </div>
           <img src={Intro} />
